@@ -1,22 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import reactLogo from "../react-logo.svg";
 import rustLogo from "../rust-logo.svg";
 import { useHistory } from "react-router-dom";
 import { MATH_PATH, PATHFINDER_PATH } from "../routing/constants/RoutePaths";
 
 const HomePage = () => {
-  const [wMath, setWMath] = useState<typeof import("wasm-math")>();
   const history = useHistory();
 
-  useEffect(() => {
-    if (!wMath) {
-      console.log("Importing wasm module");
-      import("wasm-math").then((module) => setWMath(module));
-    }
-  }, [wMath]);
-
   const handleRedirectToMath = () => history.push(MATH_PATH);
-
   const handleRedirectToPathfinder = () => history.push(PATHFINDER_PATH);
 
   return (
