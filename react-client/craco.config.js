@@ -1,6 +1,11 @@
 const { loaderByName, addBeforeLoader } = require("@craco/craco");
 
 module.exports = {
+  style: {
+    postcss: {
+      plugins: [require("tailwindcss"), require("autoprefixer")],
+    },
+  },
   webpack: {
     configure: (webpackConfig) => {
       const wasmExtensionRegExp = /\.wasm$/;
