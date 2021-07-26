@@ -1,0 +1,13 @@
+<html>
+  <header>
+    <script>
+      WebAssembly.instantiateStreaming(
+        fetch("./wasm_pathfinder_bg.wasm"),
+        {}
+      ).then((results) => {
+        console.log(`results`, results);
+      });
+    </script>
+  </header>
+  <body></body>
+</html>
